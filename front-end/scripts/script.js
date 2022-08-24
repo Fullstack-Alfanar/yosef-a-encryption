@@ -5,40 +5,13 @@ const extButton = document.querySelector("#exitBtn");
 let passwordValid = false;
 let emailValid = false;
 
-emailIn.addEventListener("input", (e) => {
-    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+emailIn.addEventListener("input", validateEmail);
 
-    if (e.target.value.match(validRegex)) {
-        emailValid = true;
-        e.target.style.borderColor = "";
-    } else {
-        emailValid = false;
-        if (e.target.value.length > 0)
-            e.target.style.borderColor = "crimson";
-        else
-            e.target.style.borderColor = "";
-    }
-});
-
-passIn.addEventListener("input", (e) => {
-    let passStr = e.target.value;
-    if (passStr.length >= 6
-        && passStr.length < 10
-        && /[a-z]/.test(passStr)
-        && /[A-Z]/.test(passStr)
-        && /[0-9]/.test(passStr)) {
-        passwordValid = true;
-        e.target.style.borderColor = "";
-    } else {
-        passwordValid = false;
-        if (e.target.value.length > 0)
-            e.target.style.borderColor = "crimson";
-        else
-            e.target.style.borderColor = "";
-    }
-});
+passIn.addEventListener("input", passValidate);
 
 subButton.addEventListener("click", (e) => {
+    validateEmail();
+    passValidate();
     if (passwordValid && emailValid) {
         let options = {
             headers: { 'Content-Type': 'application/json' },
@@ -64,3 +37,36 @@ subButton.addEventListener("click", (e) => {
 extButton.addEventListener("click", (e) => {
     document.getElementById("popUp").style.display = "none";
 });
+
+function validateEmail() {
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (emailIn.value.match(validRegex)) {
+        emailValid = true;
+        emailIn.style.borderColor = "";
+    } else {
+        emailValid = false;
+        if (emailIn.value.length > 0)
+            emailIn.style.borderColor = "crimson";
+        else
+            emailIn.style.borderColor = "";
+    }
+}
+
+function passValidate(e) {
+    let passStr = passIn.value;
+    if (passStr.length >= 6
+        && passStr.length < 10
+        && /[a-z]/.test(passStr)
+        && /[A-Z]/.test(passStr)
+        && /[0-9]/.test(passStr)) {
+        passwordValid = true;
+        passIn.style.borderColor = "";
+    } else {
+        passwordValid = false;
+        if (passIn.value.length > 0)
+            passIn.style.borderColor = "crimson";
+        else
+            passIn.style.borderColor = "";
+    }
+}
