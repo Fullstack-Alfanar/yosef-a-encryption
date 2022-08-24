@@ -50,8 +50,6 @@ subButton.addEventListener("click", (e) => {
         }
         fetch("http://localhost:3000", options).then((res) => res.json()).then((js) => {
             document.getElementById("rEmail").innerHTML = emailIn.value;
-            document.getElementById("rEmail1").innerHTML = js.email1;
-            document.getElementById("rEmail2").innerHTML = js.email2;
 
             document.getElementById("rPass").innerHTML = passIn.value;
             document.getElementById("rPass1").innerHTML = js.pass1;
