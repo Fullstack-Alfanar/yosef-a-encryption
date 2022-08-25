@@ -2,14 +2,13 @@ const app = require("express")();
 const crypto = require("crypto");
 const cors = require("cors");
 const bp = require('body-parser');
-require("dotenv").config();
+require("dotenv").config(); // allows us to read the .env file 
 
 app.use(bp.json());
 app.use(cors());
 app.use(bp.urlencoded({ extended: false }))
 
 const key = process.env.CRYPTO_KEY;
-console.log(key);
 
 const port = process.env.PORT || 3000;
 
@@ -18,7 +17,7 @@ app.get("/", (req, res) => {
     res.send("<h1>Server</h1>");
 });
 
-app.post("/", cors(), (req, res) => {
+app.post("/", (req, res) => {
     let pHash1 = crypto
         .createHash("sha256")
         .update(key + req.body.password)
