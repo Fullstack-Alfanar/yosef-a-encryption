@@ -100,7 +100,7 @@ button:active {
 
     .popCard {
         height: 500px;
-        width: 450px;
+        min-width: 450px;
         border-radius: 10px;
         box-shadow: 2px 2px 10px grey;
         font-size: larger;
