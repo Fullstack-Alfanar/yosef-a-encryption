@@ -17,11 +17,11 @@ subButton.addEventListener("click", (e) => {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             body: JSON.stringify({
-                email: emailIn.value,
-                password: passIn.value
+                "email": emailIn.value,
+                "password": passIn.value
             })
         }
-        fetch("http://localhost:3000", options).then((res) => res.json()).then((js) => {
+        fetch("http://localhost:3000/", options).then((res) => res.json()).then((js) => {
             document.getElementById("rEmail").innerHTML = emailIn.value;
 
             document.getElementById("rPass").innerHTML = passIn.value;
