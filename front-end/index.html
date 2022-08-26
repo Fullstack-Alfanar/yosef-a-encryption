@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Encrypt Email, Password</title>
+</head>
+
+<body>
+    <div class="popUp" id="popUp">
+        <div class="popCard">
+            <label id="rEmail">email: </label>
+            <label id="rPass">password: </label>
+            <label id="rPass1">encrypted password 1: </label>
+            <label id="rPass2">encrypted password 2: </label>
+
+            <div>
+                <button id="exitBtn">exit</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <h1>Encrypt</h1>
+        <div>
+            <div>
+                <label>Email</label>
+                <input id="emailIn" type="email">
+            </div>
+            <div>
+                <label>Password</label>
+                <input id="passIn" type="password" name="" id="">
+            </div>
+        </div>
+        <div class="errorLabel">
+            <ul>
+                <li id="err1">must be 6-10 characters</li>
+                <li id="err2">must contain big letters</li>
+                <li id="err3">must contain small letters</li>
+                <li id="err4">must contain numbers</li>
+            </ul>
+        </div>
+        <button id="submit">Submit</button>
+    </div>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
